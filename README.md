@@ -1,4 +1,4 @@
- Codebase Analysis Project (SakilaProject)
+ Codebase Analysis Project
  This project provides a robust, cost-effective solution for performing static codebase analysis using Generative AI (GenAI). It employs a Retrieval-Augmented Generation (RAG) architecture with completely local and free components for the knowledge indexing phase, ensuring analysis can be performed without hitting API rate limits for embeddings.
   Features
 RAG Architecture: Uses an efficient RAG pipeline to pull relevant code snippets for deep analysis.
@@ -17,7 +17,7 @@ Prerequisites
 
 2. A Gemini API Key: Set as an environment variable (see Setup).
 
-3. Target Codebase: Your Java project files must be located at the path defined in config.py (e.g., E:\Code\SakilaProject_Local\SakilaProject).
+3. Target Codebase: Your Java project files must be located at the path defined in config.py (e.g., E:\Code\).
 
 
 Setup and Installation
@@ -45,7 +45,7 @@ GOOGLE_API_KEY="YOUR_GEMINI_API_KEY_HERE"
 4. Configure Target Project
 Ensure your config.py file points to the root directory of the Java codebase you wish to analyze:
 # config.py example
-REPO_PATH = "E:/Code/SakilaProject_Local/SakilaProject"
+REPO_PATH = "E:/Code/*"
 
 
 Usage
@@ -56,7 +56,7 @@ Output Flow
 1. Vector DB Creation: On the first run, the script will load all Java files, split them into chunks, generate embeddings using the local HuggingFace model, and save the database to ./chroma_db_code_analysis.
 2. RAG Execution: The script performs a retrieval query to fetch relevant code chunks.
 3. Analysis Generation: The LLM generates the final, structured JSON output.
-4. Result: The structured output will be saved to a file named SakilaProject_analysis_output.json in the project root.
+4. Result: The structured output will be saved to a file named *SProject_analysis_output.json in the project root.
 
 
 Architecture Details

@@ -9,6 +9,7 @@ from dotenv import load_dotenv
 # --- RAG/Vector DB Imports ---
 from langchain.text_splitter import Language
 from langchain.text_splitter import RecursiveCharacterTextSplitter
+
 # **FIXED IMPORTS (Addressing Deprecation Warnings):**
 from langchain_chroma import Chroma  # NEW: Correct Chroma import
 from langchain_huggingface import HuggingFaceEmbeddings  # NEW: Correct HuggingFace import
@@ -40,7 +41,7 @@ from config import REPO_PATH
 VECTOR_DB_PATH = "./chroma_db_code_analysis"
 CHUNK_SIZE = 2000
 CHUNK_OVERLAP = 200
-TOP_K_CHUNKS = 5  # Number of relevant code chunks to retrieve
+TOP_K_CHUNKS = 8  # Number of relevant code chunks to retrieve
 
 # --- LLM Setup & Authentication ---
 GEMINI_KEY = os.getenv("GOOGLE_API_KEY")
@@ -121,7 +122,7 @@ def get_or_create_vector_db(repo_path: str, db_path: str, embeddings) -> Chroma:
         embedding=embeddings,
         persist_directory=db_path
     )
-    db.persist()
+   # db.persist()
     return db
 
 
